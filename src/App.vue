@@ -1,30 +1,36 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div
+    class="bg-[url('assets/bg.jpeg')] bg-cover bg-center h-screen text-white p-5 flex overflow-hidden"
+  >
+    <!-- 左边屏幕 -->
+    <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
+      <!-- 横向柱状图、雷达图、数据传递关系图 -->
+      <Horizontalbar class="h-1/3 box-border pb-4" />
+      <RadarBar class="h-1/3 box-border pb-4" />
+      <Relation class="h-1/3" />
+    </div>
+    <!-- 中间屏幕 -->
+    <div class="w-1/2 mr-5 flex flex-col">
+      <!-- 数据总览、地图可视化 -->
+      <TotalDate class="bg-opacity-50 bg-slate-800 p-3" />
+      <MapChart class="bg-opacity-50 bg-slate-800 p-3 mt-4 flex-1" />
+    </div>
+    <!-- 右边屏幕 -->
+    <div class="flex-1 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
+      <!-- 竖向柱状图、环形图、文档云图 -->
+      <verticalBar class="h-1/3 box-border pb-4" />
+      <RingBar class="h-1/3 box-border pb-4" />
+      <WordCloud class="h-1/3" />
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<script setup>
+import Horizontalbar from "./components/Horizontalbar.vue";
+import MapChart from "./components/MapChart.vue";
+import RadarBar from "./components/RadarBar.vue";
+import Relation from "./components/Relation.vue";
+import RingBar from "./components/RingBar.vue";
+import TotalDate from "./components/TotalDate.vue";
+import verticalBar from "./components/verticalBar.vue";
+import WordCloud from "./components/WordCloud.vue";
+</script>
